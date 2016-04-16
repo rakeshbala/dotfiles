@@ -1,0 +1,29 @@
+#ident	"@(#)profile-user	0.9	01/07/08 FDS"
+#
+#	This is the default standard profile provided to users.
+#	They are expected to edit it to meet their own needs.
+#
+if [ -e /var/cfengine/classes/nextgen ]
+then
+  source /home/fonix/prd_progs/tools/engineering-login.sh
+fi
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+
+#export PS1="\u@\h \w\n>"
+
+export PATH=$PATH:~/bin
+export PATH="/home/user/rbalasubra/.linuxbrew/bin:$PATH"
+
+#alias
+alias ..="cd .."
+alias ...="cd ../../"
+alias ll="ls -la"
+alias gits="git status -s"
+alias gitlo="git log --oneline"
+
+source .aliases
+source .bash_prompt
+source .b_profile
+source .inputrc
