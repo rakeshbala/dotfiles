@@ -111,8 +111,9 @@ set secure
 set number
 " Highlight current line
 set cursorline
-" Make tabs as wide as two spaces
+" Make tabs as wide as four spaces
 set tabstop=4
+set shiftwidth=4
 " Search mods - highlight, increment, switch off when editing
 set hlsearch
 hi Search ctermfg=LightGray
@@ -143,6 +144,8 @@ set title
 set showcmd
 " Expand tabs to spaces
 set expandtab
+" Smart tab
+set smarttab
 " Auto save on buffer switch
 set autowriteall
 " Use relative line numbers
