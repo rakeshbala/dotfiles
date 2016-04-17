@@ -19,8 +19,8 @@ alias sdiff="~/.linuxbrew/bin/sed s/---/\\\n-----------------------------\\\n---
 alias ez="vi ~/.zshrc"
 alias sz=". ~/.zshrc"
 alias dog=colorize
-alias ealias="vi $HOME/Projects/dotfiles/.aliases"
-alias salias="source $HOME/Projects/dotfiles/.aliases"
+alias ealias="vi $DOTFILEDIR/alias/common.alias"
+alias salias="source $DOTFILEDIR/alias/common.alias"
 alias tma="tmux att"
 alias tmuxn="tmux new -s dev"
 
