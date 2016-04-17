@@ -10,7 +10,7 @@ antigen bundle command-not-found
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme.
-antigen theme bureau
+source $DOTFILEDIR/zsh/$(platform).theme
 
 #my choices
 antigen bundle colored-man-pages

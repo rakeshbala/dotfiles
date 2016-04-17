@@ -1,5 +1,3 @@
-[user]
-	email = rakesh.balasubramanian@factset.com
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
 	remotes = remote -v
@@ -17,5 +15,6 @@
 [color]
 	ui = true
 [core]
-	editor = nvim
-	excludesfile = /home/user/rbalasubra/.gitignore_global
+	editor = vi
+[include]
+    path = ~/.dotfile_local/gitconfig

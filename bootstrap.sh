@@ -6,6 +6,11 @@ echo "Detecting platform..."
 platform=$(uname -s)
 if [ "$platform" == "Darwin" ]; then
     platform="osx"
+elif [ "$platform" == "Linux" ]; then
+    platform="linux"
+else
+    echo "$platformi is not supported.. Exiting.."
+    exit
 fi
 echo "Platform is $platform..."
 
@@ -69,4 +74,7 @@ mkdir -p ${XDG_CONFIG_HOME:=$HOME/.config}
 ln -s $HOME/.vim $XDG_CONFIG_HOME/nvim
 ln -s $HOME/.vim/vimrc $XDG_CONFIG_HOME/nvim/init.vim
 
-echo "Bootstrapped for zsh!! Source $HOME/.zshrc if you are using a zsh else restart the shell. Enjoy" | cowsay | lolcat
+mkdir -p "$HOME/.dotfile_local"
+
+echo "Bootstrapped for zsh!! Add local configs (untracked) to $HOME/.dotfile_local/zshrc.local. Enjoy." | cowsay
+
