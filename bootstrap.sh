@@ -1,4 +1,6 @@
 #!/bin/bash
+echo "Only bootstrapping for zsh.. "
+
 echo "Detecting platform..."
 platform=$(uname -s)
 if [ "$platform" == "Darwin" ]; then
@@ -28,3 +30,32 @@ fi
 while read tool; do
     brew install "$tool"
 done < "Brewfile.$platform"
+
+echo "Backing up old files"
+mkdir -p "$HOME/.dotfiles_old"
+files=( .zshrc .vimrc .tmux.conf )
+for i in "${files[@]}"
+do
+    mv $i $HOME/.dotfiles_old/
+done
+mv $HOME/.vim/.vimrc $HOME/.dotfiles_old/.vimrc_fromdotvim
+
+
+if test "$(ls -A "$HOME/.dotfiles_old")"; then
+    echo "Done.."
+else
+    rmdir "$HOME/.dotfiles_old"
+fi
+
+echo "Symlinking dot files..."
+echo ".zshrc"
+ln -s zsh/zshrc $HOME/.zshrc
+echo ".vimrc"
+echo "Setting up vim-plug"
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+ln -s vim/vimrc $HOME/.vim/.vimrc
+nvim +PlugInstall +qall
+echo ".tmux.conf"
+ln -s tmux/.tmux.conf $HOME/.tmux.conf
+
+echo "Bootstrapped for zsh!! " | cowsay | lolcat
