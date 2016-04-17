@@ -6,6 +6,6 @@ My dotfiles repository.
 * Install brew (linuxbrew or homebrew according to the environment)
 * Uses antigen for zsh plugin management
 * Uses vim-plug for vim plugin management
-* Add .dotfilepath to $HOME directory
+* Adds a .dotfilepath file to $HOME directory
 
 
