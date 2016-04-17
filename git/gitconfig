@@ -17,5 +17,5 @@
 [color]
 	ui = true
 [core]
-	editor = vi
+	editor = nvim
 	excludesfile = /home/user/rbalasubra/.gitignore_global

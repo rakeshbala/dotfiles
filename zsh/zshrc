@@ -1,42 +1,18 @@
-#antigen
-#
-source ~/Projects/dotfiles/zsh/antigen/antigen.zsh
+export DOTFILEDIR="$(cat $HOME/.dotfilepath)"
 
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
+platform=$(uname -s)
+if [ "$platform" = "Darwin" ]; then
+    platform="osx"
+fi
 
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle command-not-found
+# antigen for zsh
+source "$DOTFILEDIR/zsh/antigenplugins.zsh"
 
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-# Load the theme.
-antigen theme bureau
-
-#my choices
-antigen bundle colored-man-pages
-antigen bundle djui/alias-tips
-antigen bundle colorize
-antigen bundle autojump
-antigen bundle supercrabtree/k
-antigen bundle arzzen/calc.plugin.zsh
-antigen bundle fasd
-
-# Tell antigen that you're done.
-antigen apply
-#
-# Created by newuser for 5.2
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_71.jdk/Contents/Home"
-export PATH="$PATH:~/bin"
-export PATH="$PATH:~/Library/Android/sdk/platform-tools"
-export PATH=/usr/local/bin:$PATH #homebrew
-export PATH="/usr/local/sbin:$PATH" #homebrew
-export PATH="/opt/local/bin:/opt/local/sbin:$PATH" #mac ports
-
+#platform specific paths
+source "$DOTFILEDIR/paths/$platform.paths"
 
 #aliases
-source ~/Projects/dotfiles/.aliases
+source "$DOTFILEDIR/alias/common.alias"
 
 # Colorize a bunch of stuff
 source "`brew --prefix`/etc/grc.bashrc"
@@ -104,6 +80,7 @@ set -o vi
 #
 # Compact completion
 setopt listpacked
+
 # Verify hist commands
 setopt histverify
 

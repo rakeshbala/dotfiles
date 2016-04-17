@@ -1,12 +1,17 @@
 #!/bin/bash
 echo "Only bootstrapping for zsh.. "
 
+
 echo "Detecting platform..."
 platform=$(uname -s)
 if [ "$platform" == "Darwin" ]; then
     platform="osx"
 fi
 echo "Platform is $platform..."
+
+dotfilepath=$(pwd)
+echo "Dotfiles at $dotfilepath ..."
+echo $dotfilepath > $HOME/.dotfilepath
 
 echo "Checking brew installation"
 
@@ -36,9 +41,9 @@ mkdir -p "$HOME/.dotfiles_old"
 files=( .zshrc .vimrc .tmux.conf .gitconfig )
 for i in "${files[@]}"
 do
-    mv $i $HOME/.dotfiles_old/
+    mv -i "$HOME/$i" "$HOME/.dotfiles_old/"
 done
-mv $HOME/.vim/.vimrc $HOME/.dotfiles_old/.vimrc_fromdotvim
+mv -i $HOME/.vim/.vimrc $HOME/.dotfiles_old/.vimrc_fromdotvim
 
 
 if test "$(ls -A "$HOME/.dotfiles_old")"; then
@@ -49,15 +54,16 @@ fi
 
 echo "Symlinking dot files..."
 echo ".zshrc"
-ln -s zsh/zshrc $HOME/.zshrc
+ln -s "$dotfilepath/zsh/zshrc" $HOME/.zshrc
 echo ".vimrc"
 echo "Setting up vim-plug"
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-ln -s vim/vimrc $HOME/.vim/.vimrc
+ln -s "$dotfilepath/vim/vimrc" $HOME/.vim/.vimrc
+ln -s "$dotfilepath/vim/vimrc" $HOME/.vimrc
 nvim +PlugInstall +qall
 echo ".tmux.conf"
-ln -s tmux/tmux.conf $HOME/.tmux.conf
+ln -s "$dotfilepath/tmux/tmux.conf" $HOME/.tmux.conf
 echo ".gitconfig"
-ln -s git/gitignore $HOME/.gitconfig
+ln -s "$dotfilepath/git/gitconfig" $HOME/.gitconfig
 
-echo "Bootstrapped for zsh!! " | cowsay | lolcat
+echo "Bootstrapped for zsh!! Source $HOME/.zshrc if you are using a zsh else restart the shell. Enjoy" | cowsay | lolcat
