@@ -33,7 +33,7 @@ done < "Brewfile.$platform"
 
 echo "Backing up old files"
 mkdir -p "$HOME/.dotfiles_old"
-files=( .zshrc .vimrc .tmux.conf )
+files=( .zshrc .vimrc .tmux.conf .gitconfig )
 for i in "${files[@]}"
 do
     mv $i $HOME/.dotfiles_old/
@@ -56,6 +56,8 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 ln -s vim/vimrc $HOME/.vim/.vimrc
 nvim +PlugInstall +qall
 echo ".tmux.conf"
-ln -s tmux/.tmux.conf $HOME/.tmux.conf
+ln -s tmux/tmux.conf $HOME/.tmux.conf
+echo ".gitconfig"
+ln -s git/gitignore $HOME/.gitconfig
 
 echo "Bootstrapped for zsh!! " | cowsay | lolcat
