@@ -72,8 +72,6 @@ setopt histverify
 # Zsh Line editor - on by default
 setopt ZLE
 
-#always on tmux
-tmux att -t dev || tmux new -s dev
 
 
 

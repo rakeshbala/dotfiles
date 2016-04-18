@@ -18,6 +18,7 @@ alias vi="nvim"
 alias sdiff="~/.linuxbrew/bin/sed s/---/\\\n-----------------------------\\\n---/ | ~/.linuxbrew/bin/sed s/@@/\\\n\\\n\\\n@@/"
 alias ez="vi ~/.zshrc"
 alias sz=". ~/.zshrc"
+alias ev="vi ~/.vim/vimrc"
 alias dog=colorize
 alias ealias="vi $DOTFILEDIR/alias/common.alias"
 alias salias="source $DOTFILEDIR/alias/common.alias"
