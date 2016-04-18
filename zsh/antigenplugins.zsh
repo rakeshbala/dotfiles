@@ -20,6 +20,7 @@ antigen bundle autojump
 antigen bundle supercrabtree/k
 antigen bundle arzzen/calc.plugin.zsh
 antigen bundle fasd
+antigen bundle vi-mode
 
 # Tell antigen that you're done.
 antigen apply

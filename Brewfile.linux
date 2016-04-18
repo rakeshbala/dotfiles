@@ -35,7 +35,7 @@ m4
 makedepend
 mpfr
 ncurses
-neovim
+neovim/neovim/neovim
 openssl
 patchelf
 pcre
@@ -48,6 +48,7 @@ sqlite
 texinfo
 tree
 unzip
+ruby
 vim
 xz
 zlib
