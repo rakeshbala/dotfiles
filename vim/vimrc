@@ -23,6 +23,7 @@ Plug 'xolox/vim-misc'
 Plug 'scrooloose/syntastic'
 Plug 'gregsexton/gitv'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'edkolev/tmuxline.vim'
 " Neovim plugins
 if has('nvim')
         Plug 'kassio/neoterm'
