@@ -37,7 +37,7 @@ set -o vi
 #
  setopt NO_HUP
 #
- export EDITOR="vi"
+ export EDITOR="nvim"
 #
 # # Keep echo "station" > station from clobbering station
  setopt NO_CLOBBER
@@ -79,6 +79,8 @@ setopt listpacked
 setopt histverify
 # Zsh Line editor - on by default
 setopt ZLE
+
+unsetopt incappendhistory
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace
