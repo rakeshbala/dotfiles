@@ -3,6 +3,7 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
 alias .....="cd ../../../.."
+alias dot="cd $DOTFILEDIR"
 
 alias gits="git status -s"
 alias gitd="git diff"
