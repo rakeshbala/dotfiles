@@ -5,17 +5,18 @@ call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'altercation/vim-colors-solarized'
 Plug 'scrooloose/nerdtree'
-Plug 'ajh17/VimCompletesMe'
+Plug 'fatih/vim-go'
+"Plug 'ajh17/VimCompletesMe'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'takac/vim-hardtime'
+"Plug 'takac/vim-hardtime'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'janko-m/vim-test'
-Plug 'AutoComplPop'
-Plug 'ervandew/supertab'
+"Plug 'AutoComplPop'
+"Plug 'ervandew/supertab'
 Plug 'mileszs/ack.vim'
 Plug 'henrik/vim-indexed-search'
 Plug 'xolox/vim-misc'
@@ -23,9 +24,16 @@ Plug 'scrooloose/syntastic'
 Plug 'gregsexton/gitv'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'edkolev/tmuxline.vim'
+Plug 'Shougo/neosnippet'
+Plug 'Shougo/neosnippet-snippets'
+"Plug 'Valloric/YouCompleteMe'
 " Neovim plugins
 if has('nvim')
-        Plug 'kassio/neoterm'
+    function! DoRemote(arg)
+        UpdateRemotePlugins
+    endfunction
+    Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+    Plug 'kassio/neoterm'
 endif
 call plug#end()
 
@@ -58,7 +66,7 @@ set statusline+=%*
 let g:syntastic_javascript_checkers = [ 'jscs', 'jshint' ]
 
 let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_aggregate_errors = 1
 let g:syntastic_auto_jumpm = 1
@@ -75,6 +83,49 @@ let g:tmuxline_preset = {
         \ 'y': '%a',
         \ 'z': ['%b %d', '%l:%M %p']}
 
+" vim-go binding
+au FileType go nmap <leader>r <Plug>(go-run)
+
+" deoplete options
+let g:deoplete#enable_at_startup = 1
+
+" Neosnippet binding
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets' behavior.
+imap <expr><TAB>
+ \ pumvisible() ? "\<C-n>" :
+ \ neosnippet#expandable_or_jumpable() ?
+ \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+ \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+    set conceallevel=2 concealcursor=niv
+endif
+
+
+"imap <silent><expr><Tab> pumvisible() ? "\<C-n>"
+	"\ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
+	"\ : (<SID>is_whitespace() ? "\<Tab>"
+	"\ : deoplete#mappings#manual_complete()))
+
+"smap <silent><expr><Tab> pumvisible() ? "\<C-n>"
+	"\ : (neosnippet#jumpable() ? "\<Plug>(neosnippet_jump)"
+	"\ : (<SID>is_whitespace() ? "\<Tab>"
+	"\ : deoplete#mappings#manual_complete()))
+
+"inoremap <expr><S-Tab>  pumvisible() ? "\<C-p>" : "\<C-h>"
+
+"function! s:is_whitespace() "{{{
+	"let col = col('.') - 1
+	"return ! col || getline('.')[col - 1] =~? '\s'
+"endfunction "}}}
+
+" --- Plugins end
 filetype plugin on
 "Set hardmode by default
 "autocmd VimEnter,BufNewFile,BufReadPost * silent! HardTimeOn
