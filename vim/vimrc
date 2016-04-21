@@ -15,6 +15,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'janko-m/vim-test'
+source ~/.dotfile_local/vimrc.local
 "Plug 'AutoComplPop'
 "Plug 'ervandew/supertab'
 Plug 'mileszs/ack.vim'
@@ -33,6 +34,7 @@ if has('nvim')
         UpdateRemotePlugins
     endfunction
     Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+    Plug 'zchee/deoplete-go', { 'do': 'make'}
     Plug 'kassio/neoterm'
 endif
 call plug#end()
@@ -88,11 +90,7 @@ au FileType go nmap <leader>r <Plug>(go-run)
 
 " deoplete options
 let g:deoplete#enable_at_startup = 1
-
-" Neosnippet binding
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+autocmd CompleteDone * pclose!
 
 " SuperTab like snippets' behavior.
 imap <expr><TAB>
