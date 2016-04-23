@@ -26,6 +26,7 @@ alias ealias="vi $DOTFILEDIR/alias/common.alias"
 alias salias="source $DOTFILEDIR/alias/common.alias"
 alias tma="tmux att"
 alias tmuxn="tmux new -s dev"
+alias paths="echo $PATH| tr ':' '\n'"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
