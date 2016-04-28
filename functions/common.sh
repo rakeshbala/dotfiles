@@ -1,4 +1,4 @@
-function platform()
+function platform_get()
 {
     local ostype=$(uname -s)
     if [[ "$ostype" == "Darwin" ]]; then

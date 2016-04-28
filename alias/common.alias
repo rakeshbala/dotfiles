@@ -72,4 +72,4 @@ alias df='df -h'
 alias du='du -h -d 2'
 
 # Host specific aliases
-source "$DOTFILEDIR/alias/$(platform).alias"
+source "$DOTFILEDIR/alias/$(platform_get).alias"

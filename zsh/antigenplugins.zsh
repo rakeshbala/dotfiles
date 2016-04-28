@@ -7,7 +7,7 @@ antigen use oh-my-zsh
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # Load the theme.
-source $DOTFILEDIR/zsh/$(platform).theme
+source $DOTFILEDIR/zsh/$(platform_get).theme
 
 #my choices
 antigen bundle colored-man-pages

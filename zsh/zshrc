@@ -6,6 +6,11 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     setopt xtrace prompt_subst
 fi
 
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
+
 export DOTFILEDIR="$(cat $HOME/.dotfilepath)"
 source "$DOTFILEDIR/functions/common.sh"
 
@@ -13,11 +18,11 @@ source "$DOTFILEDIR/functions/common.sh"
 source "$DOTFILEDIR/zsh/antigenplugins.zsh"
 
 #paths
-source "$DOTFILEDIR/paths/$(platform).paths"
+source "$DOTFILEDIR/paths/$(platform_get).paths"
 
 #aliases
 source "$DOTFILEDIR/alias/common.alias"
-source "$DOTFILEDIR/alias/$(platform).alias"
+source "$DOTFILEDIR/alias/$(platform_get).alias"
 
 source "$HOME/.dotfile_local/zshrc.local" 2>/dev/null
 
@@ -56,6 +61,9 @@ set -o vi
  bindkey '\e[4~' end-of-line
 
 # # Incremental search is elite!
+ bindkey -M vicmd "j" up-line-or-beginning-search # Up
+ bindkey -M vicmd "k" down-line-or-beginning-search # Down
+
  bindkey -M vicmd "/" history-incremental-search-backward
  bindkey -M vicmd "?" history-incremental-search-forward
 #
@@ -81,6 +89,7 @@ setopt histverify
 setopt ZLE
 
 unsetopt incappendhistory
+
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace

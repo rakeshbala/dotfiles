@@ -109,6 +109,7 @@ endif
 
 " Vim-go options
 let g:go_term_mode = "split"
+let g:go_fmt_command = "goimports"
 
 " Custom comment string
 " autocmd FileType apache setlocal commentstring=#\ %s
