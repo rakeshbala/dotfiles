@@ -22,13 +22,9 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
 source ~/.dotfile_local/vimrc.local
-" Plug 'AutoComplPop'
-" Plug 'ervandew/supertab'
 " Plug 'takac/vim-hardtime'
-" Plug 'ajh17/VimCompletesMe'
-" Plug 'scrooloose/nerdcommenter'
-" Plug 'tpope/vim-commentary'
 "Neovim plugins
 if has('nvim')
     function! DoRemote(arg)
@@ -48,8 +44,6 @@ silent! nnoremap <F2> :NERDTreeToggle<CR>
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'base16_default'
 
-"Supertab
-let g:SuperTabDefaultCompletionType = "<c-n>"
 
 "vim-test options
 let test#javascript#mocha#executable = '/home/user/rbalasubra/.nvm/v0.10.42/bin/mocha'
@@ -57,10 +51,6 @@ let test#strategy = "neoterm"
 
 "ack.vim options
 let g:ackprg = "/home/user/rbalasubra/.linuxbrew/bin/ack -s -H --nocolor --nogroup --column"
-
-"vim-session options
-let g:session_autosave = 'yes'
-let g:session_autoload = 'yes'
 
 " syntastic options
 set statusline+=%#warningmsg#
@@ -115,6 +105,7 @@ let g:go_fmt_command = "goimports"
 " autocmd FileType apache setlocal commentstring=#\ %s
 
 " --- Plugins end
+
 filetype plugin on
 "Set hardmode by default
 "autocmd VimEnter,BufNewFile,BufReadPost * silent! HardTimeOn

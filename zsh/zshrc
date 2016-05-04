@@ -61,15 +61,18 @@ set -o vi
  bindkey '\e[4~' end-of-line
 
 # # Incremental search is elite!
- #bindkey -M vicmd "j" up-line-or-beginning-search # Up
- #bindkey -M vicmd "k" down-line-or-beginning-search # Down
 
  bindkey -M vicmd "/" history-incremental-search-backward
  bindkey -M vicmd "?" history-incremental-search-forward
 #
 # # Search based on what you typed in already
- bindkey -M vicmd "j" history-beginning-search-backward
- bindkey -M vicmd "k" history-beginning-search-forward
+ bindkey -M vicmd "//" history-beginning-search-backward
+ bindkey -M vicmd "??" history-beginning-search-forward
+
+# # Substring based history search
+ bindkey -M vicmd 'k' history-substring-search-up
+ bindkey -M vicmd 'j' history-substring-search-down
+
 #
 # bindkey "\eOP" run-help
 #

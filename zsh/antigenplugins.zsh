@@ -5,6 +5,7 @@ antigen use oh-my-zsh
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
 
 # Load the theme.
 source $DOTFILEDIR/zsh/$(platform_get).theme
