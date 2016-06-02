@@ -16,7 +16,7 @@ alias gitamend="git commit --amend -a --no-edit"
 
 alias c="clear"
 alias ack="ack --pager='less -R'"
-alias tree="tree -I 'node_modules' -I '.git'"
+alias tree="tree -I 'node_modules|\.git'"
 alias vi="nvim"
 alias sdiff="~/.linuxbrew/bin/sed s/---/\\\n-----------------------------\\\n---/ | ~/.linuxbrew/bin/sed s/@@/\\\n\\\n\\\n@@/"
 alias ez="vi ~/.zshrc"

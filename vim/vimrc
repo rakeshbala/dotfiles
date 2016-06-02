@@ -23,8 +23,9 @@ Plug 'Shougo/neosnippet'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
 source ~/.dotfile_local/vimrc.local
-" Plug 'takac/vim-hardtime'
 "Neovim plugins
 if has('nvim')
     function! DoRemote(arg)
@@ -57,7 +58,7 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_javascript_checkers = [ 'jscs', 'jshint' ]
+"let g:syntastic_javascript_checkers = [ 'jscs', 'jshint' ]
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -103,6 +104,9 @@ let g:go_fmt_command = "goimports"
 
 " Custom comment string
 " autocmd FileType apache setlocal commentstring=#\ %s
+"
+" Rust autoformat rust.vim
+let g:rustfmt_autosave = 1
 
 " --- Plugins end
 
@@ -118,6 +122,9 @@ syntax on
 
 " Hidden buffers
 set hidden
+
+" Clipboard
+set clipboard+=unnamedplus
 
 " Split defaults
 set splitright
@@ -247,3 +254,11 @@ let mapleader = " "
 autocmd! BufEnter * FixWhitespace
 autocmd! BufWritePost * FixWhitespace
 
+" paste toggle
+set pastetoggle=<F6>
+
+" copy mode
+nnoremap <F8> :set invnumber invrelativenumber<CR>
+
+" clear search highlighting
+nnoremap <F7> :noh<CR>
