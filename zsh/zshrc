@@ -15,7 +15,10 @@ export DOTFILEDIR="$(cat $HOME/.dotfilepath)"
 source "$DOTFILEDIR/functions/common.sh"
 
 # antigen for zsh
-source "$DOTFILEDIR/zsh/antigenplugins.zsh"
+#source "$DOTFILEDIR/zsh/antigenplugins.zsh"
+#
+# zplug for zsh
+source "$DOTFILEDIR/zsh/zplugs.zsh"
 
 #paths
 source "$DOTFILEDIR/paths/$(platform_get).paths"
