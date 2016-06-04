@@ -22,6 +22,7 @@ alias sdiff="~/.linuxbrew/bin/sed s/---/\\\n-----------------------------\\\n---
 alias ez="vi ~/.zshrc"
 alias sz=". ~/.zshrc"
 alias ev="vi ~/.vim/vimrc"
+alias evplug="vi $DOTFILEDIR/vim/vimplugins.vim"
 alias ezl='vi ~/.dotfile_local/zshrc.local'
 alias szl='source ~/.dotfile_local/zshrc.local'
 alias dog=colorize
