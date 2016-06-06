@@ -13,6 +13,7 @@ alias gitdh="git diff HEAD~1"
 alias gitcm="git commit -am"
 alias gitfix="git commit -a --fixup HEAD"
 alias gitamend="git commit --amend -a --no-edit"
+alias gitlgh="git lg| head"
 
 alias c="clear"
 alias ack="ack --pager='less -R'"

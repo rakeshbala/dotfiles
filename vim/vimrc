@@ -151,6 +151,9 @@ autocmd! BufWritePost * FixWhitespace
 " paste toggle
 set pastetoggle=<F6>
 
+" no swap
+set noswapfile
+
 " copy mode
 nnoremap <F8> :set invnumber invrelativenumber<CR>
 
