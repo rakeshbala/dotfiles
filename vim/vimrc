@@ -1,7 +1,7 @@
 set nocompatible              " be iMproved, required
 
 "Vim-plug
-so vimplugins.vim
+so $DOTFILEDIR/vim/vimplugins.vim
 
 filetype plugin on
 

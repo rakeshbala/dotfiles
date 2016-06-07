@@ -22,6 +22,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
+Plug 'mhinz/vim-signify'
 source ~/.dotfile_local/vimrc.local
 "Neovim plugins
 if has('nvim')

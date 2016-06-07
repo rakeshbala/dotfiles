@@ -1,4 +1,4 @@
-export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME="$(brew --prefix)/Cellar/zplug/2.1.0"
 source $ZPLUG_HOME/init.zsh
 
 # Syntax highlighting bundle.
