@@ -106,3 +106,6 @@ let g:go_fmt_command = "goimports"
 " Rust autoformat rust.vim
 let g:rustfmt_autosave = 1
 
+" Vim signify options
+let g:signify_vcs_list = [ 'git' ]
+let g:signify_update_on_focusgained = 1
