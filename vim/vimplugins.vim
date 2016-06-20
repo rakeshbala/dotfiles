@@ -42,6 +42,8 @@ silent! nnoremap <F2> :NERDTreeToggle<CR>
 "let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'base16_default'
+let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#whitespace#enabled = 0
 
 
 "vim-test options
@@ -109,3 +111,12 @@ let g:rustfmt_autosave = 1
 " Vim signify options
 let g:signify_vcs_list = [ 'git' ]
 let g:signify_update_on_focusgained = 1
+
+" NeoTerm
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
+nnoremap ,th :call neoterm#close()<cr>
+let g:neoterm_position = 'horizontal'
+let g:neoterm_automap_keys = ',tt'

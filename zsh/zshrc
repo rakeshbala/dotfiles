@@ -94,8 +94,7 @@ setopt histverify
 # Zsh Line editor - on by default
 setopt ZLE
 
-unsetopt incappendhistory
-
+setopt inc_append_history
 
 if [[ "$PROFILE_STARTUP" == true ]]; then
     unsetopt xtrace

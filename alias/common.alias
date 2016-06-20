@@ -10,13 +10,14 @@ alias gitd="git diff"
 alias gitp="git push"
 alias gitb="git branch -v"
 alias gitdh="git diff HEAD~1"
-alias gitcm="git commit -am"
+alias gitcma="git commit -am"
+alias gitcm="git commit -m"
 alias gitfix="git commit -a --fixup HEAD"
 alias gitamend="git commit --amend -a --no-edit"
 alias gitlgh="git lg| head"
 
 alias c="clear"
-alias ack="ack --pager='less -R'"
+alias ackl="ack --pager='less -R'"
 alias tree="tree -I 'node_modules|\.git'"
 alias vi="nvim"
 alias sdiff="~/.linuxbrew/bin/sed s/---/\\\n-----------------------------\\\n---/ | ~/.linuxbrew/bin/sed s/@@/\\\n\\\n\\\n@@/"
@@ -33,6 +34,12 @@ alias tma="tmux att"
 alias tmuxn="tmux new -s dev"
 alias paths="echo $PATH| tr ':' '\n'"
 alias -g L=" | less"
+alias -g TR=" | tr -s ' ' '\n' "
+
+
+#go alias
+alias goi="go install ./..."
+alias gotone="go test ./tests/... -run "
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
