@@ -118,5 +118,7 @@ tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
 nnoremap ,th :call neoterm#close()<cr>
+nnoremap ,tl :call neoterm#clear()<cr>
+nnoremap ,tc :call neoterm#kill()<cr>
 let g:neoterm_position = 'horizontal'
 let g:neoterm_automap_keys = ',tt'
