@@ -73,6 +73,8 @@ autocmd InsertLeave * :setlocal hlsearch
 
 " Ignore case of searches
 set ignorecase
+" Don't ignore case when using capital letter
+set smartcase
 " Always show status line
 set laststatus=2
 " Enable mouse in all modes
@@ -102,10 +104,14 @@ if exists("&relativenumber")
 	set relativenumber
 	au BufReadPost * set relativenumber
 endif
-" Start scrolling three lines before the horizontal window border
-set scrolloff=10
+" Start n lines before the horizontal window border
+set scrolloff=20
 
+" autoread file when it changes outside vim
+set autoread
 
+" confirm instead of failing commands
+set confirm
 
 "tha [2:43 PM]
 " Stop annoying me every time I have a file open in two different vim

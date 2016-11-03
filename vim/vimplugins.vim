@@ -26,7 +26,7 @@ Plug 'mhinz/vim-signify'
 source ~/.dotfile_local/vimrc.local
 "Neovim plugins
 if has('nvim')
-    function! DoRemote(arg)
+   function! DoRemote(arg)
         UpdateRemotePlugins
     endfunction
     Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
@@ -34,6 +34,11 @@ if has('nvim')
     Plug 'kassio/neoterm'
 endif
 call plug#end()
+
+"vim-go
+au FileType go nmap <Leader>gde <Plug>(go-describe)
+au FileType go nmap <Leader>gc <Plug>(go-callers)
+
 
 "NERDTree options
 silent! nnoremap <F2> :NERDTreeToggle<CR>
@@ -59,6 +64,7 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 "let g:syntastic_javascript_checkers = [ 'jscs', 'jshint' ]
+let g:syntastic_go_checkers = [ 'gofmt' ]
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
