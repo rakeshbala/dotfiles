@@ -59,6 +59,9 @@ set -o vi
 # # I don't know why I never set this before.
  setopt EXTENDED_GLOB
 #
+# Bash like comments
+ setopt interactivecomments
+#
 # # Who doesn't want home and end to work?
  bindkey '\e[1~' beginning-of-line
  bindkey '\e[4~' end-of-line
@@ -109,3 +112,4 @@ if [[ "$PROFILE_STARTUP" == true ]]; then
     exec 2>&3 3>&-
 fi
 
+export PATH="$HOME/.yarn/bin:$PATH"

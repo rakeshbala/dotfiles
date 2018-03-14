@@ -18,7 +18,7 @@ syntax on
 set hidden
 
 " Clipboard
-set clipboard+=unnamedplus
+"set clipboard+=unnamedplus
 
 " Split defaults
 set splitright
@@ -34,8 +34,8 @@ set background=dark
 
 " Enhance command-line completion
 set wildmenu
-" Allow cursor keys in insert mode
-set esckeys
+" Allow cursor keys in insert mode - obsolete
+"set esckeys
 " Allow backspace in insert mode
 set backspace=indent,eol,start
 " Optimize for fast terminal connections
@@ -141,6 +141,9 @@ function! s:FixWhitespace(line1,line2)
     call setpos('.', l:save_cursor)
 endfunction
 
+autocmd! BufEnter * FixWhitespace
+autocmd! BufWritePost * FixWhitespace
+
 " Run :FixWhitespace to remove end of line white space
 command! -range=% FixWhitespace call <SID>FixWhitespace(<line1>,<line2>)
 
@@ -152,8 +155,8 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 let mapleader = " "
 
-autocmd! BufEnter * FixWhitespace
-autocmd! BufWritePost * FixWhitespace
+" set word delimitors
+"set iskeyword-=_
 
 " paste toggle
 set pastetoggle=<F6>
@@ -166,3 +169,6 @@ nnoremap <F8> :set invnumber invrelativenumber<CR>
 
 " clear search highlighting
 nnoremap <F7> :noh<CR>
+
+" search and replace visual selection
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>

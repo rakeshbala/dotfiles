@@ -23,6 +23,10 @@ Plug 'tpope/vim-surround'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'mhinz/vim-signify'
+Plug 'easymotion/vim-easymotion'
+Plug 'leafgarland/typescript-vim'
+Plug 'othree/yajs.vim'
+Plug 'tpope/vim-db'
 source ~/.dotfile_local/vimrc.local
 "Neovim plugins
 if has('nvim')
@@ -34,6 +38,9 @@ if has('nvim')
     Plug 'kassio/neoterm'
 endif
 call plug#end()
+
+"vim-fugitive
+set diffopt+=vertical
 
 "vim-go
 au FileType go nmap <Leader>gde <Plug>(go-describe)
@@ -91,11 +98,19 @@ au FileType go nmap <leader>r <Plug>(go-run)
 let g:deoplete#enable_at_startup = 1
 autocmd CompleteDone * pclose!
 
+" Plugin key-mappings.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+
 " SuperTab like snippets' behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 imap <expr><TAB>
- \ pumvisible() ? "\<C-n>" :
- \ neosnippet#expandable_or_jumpable() ?
- \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+  \ pumvisible() ? "\<C-n>" :
+  \ neosnippet#expandable_or_jumpable() ?
+  \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
@@ -103,6 +118,9 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 if has('conceal')
     set conceallevel=2 concealcursor=niv
 endif
+
+" Enable snipMate compatibility feature.
+let g:neosnippet#enable_snipmate_compatibility = 1
 
 " Vim-go options
 let g:go_term_mode = "split"
@@ -117,6 +135,9 @@ let g:rustfmt_autosave = 1
 " Vim signify options
 let g:signify_vcs_list = [ 'git' ]
 let g:signify_update_on_focusgained = 1
+
+" Ctrl-P
+let g:ctrlp_custom_ignore = 'node_modules\|vendor'
 
 " NeoTerm
 tnoremap <C-h> <C-\><C-n><C-w>h
