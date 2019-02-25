@@ -16,6 +16,10 @@ alias gitfix="git commit -a --fixup HEAD"
 alias gitamend="git commit --amend -a --no-edit"
 alias gitlgh="git lg| head"
 
+git_pub () {
+	hub push -u origin $(git rev-parse --abbrev-ref HEAD)
+}
+
 alias c="clear"
 alias ackl="ack --pager='less -R'"
 alias tree="tree -I 'node_modules|\.git'"

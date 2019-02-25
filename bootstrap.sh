@@ -17,6 +17,7 @@ echo "Platform is $platform..."
 dotfilepath=$(pwd)
 echo "Dotfiles at $dotfilepath ..."
 echo $dotfilepath > $HOME/.dotfilepath
+export DOTFILEDIR=$dotfilepath
 
 echo "Checking brew installation"
 
@@ -37,9 +38,7 @@ else
     brew update && brew upgrade && brew prune  && brew doctor
 fi
 
-while read tool; do
-    brew install "$tool"
-done < "Brewfile.$platform"
+brew bundle  --file="$DOTFILEDIR/Brewfile"
 
 echo "Backing up old files"
 mkdir -p "$HOME/.dotfiles_old"

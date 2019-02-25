@@ -19,6 +19,7 @@
 [core]
 	editor = nvim
 	autocrlf = input
+	excludesfile = /Users/rbalasubra/.gitignore_global
 [include]
     path = ~/.dotfile_local/gitconfig
 [filter "lfs"]
@@ -32,3 +33,6 @@
 	helper = store
 [credential]
 	helper = store
+[user]
+	name = Rakesh Balasubramanian
+	email = rakesh.balasubramanian@gmail.com

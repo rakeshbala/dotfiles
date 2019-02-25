@@ -45,6 +45,26 @@ set diffopt+=vertical
 "vim-go
 au FileType go nmap <Leader>gde <Plug>(go-describe)
 au FileType go nmap <Leader>gc <Plug>(go-callers)
+au FileType go nmap <Leader>b <Plug>(go-build)
+au FileType go nmap <Leader>tc <Plug>(go-test-compile)
+au FileType go nmap <Leader>r <Plug>(go-run)
+au FileType go nmap <Leader>tf <Plug>(go-test-func)
+au FileType go nmap <Leader>i <Plug>(go-info)
+
+let g:go_term_mode = "split"
+let g:go_fmt_command = "goimports"
+let g:go_def_mode = "godef"
+let g:go_highlight_structs = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_function_arguments = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+
+
 
 
 "NERDTree options
@@ -53,7 +73,7 @@ silent! nnoremap <F2> :NERDTreeToggle<CR>
 "airline options
 "let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'base16_default'
+let g:airline_theme = 'murmur'
 let g:airline#extensions#hunks#enabled=0
 let g:airline#extensions#whitespace#enabled = 0
 
@@ -63,7 +83,7 @@ let test#javascript#mocha#executable = '/home/user/rbalasubra/.nvm/v0.10.42/bin/
 let test#strategy = "neoterm"
 
 "ack.vim options
-let g:ackprg = "/home/user/rbalasubra/.linuxbrew/bin/ack -s -H --nocolor --nogroup --column"
+let g:ackprg = "/usr/local/bin/ack -s -H --nocolor --nogroup --column"
 
 " syntastic options
 set statusline+=%#warningmsg#
@@ -92,7 +112,6 @@ let g:tmuxline_preset = {
         \ 'z': ['%b %d', '%l:%M %p']}
 
 " vim-go binding
-au FileType go nmap <leader>r <Plug>(go-run)
 
 " deoplete options
 let g:deoplete#enable_at_startup = 1
@@ -122,10 +141,6 @@ endif
 " Enable snipMate compatibility feature.
 let g:neosnippet#enable_snipmate_compatibility = 1
 
-" Vim-go options
-let g:go_term_mode = "split"
-let g:go_fmt_command = "goimports"
-
 " Custom comment string
 " autocmd FileType apache setlocal commentstring=#\ %s
 "
@@ -147,5 +162,5 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 nnoremap ,th :call neoterm#close()<cr>
 nnoremap ,tl :call neoterm#clear()<cr>
 nnoremap ,tc :call neoterm#kill()<cr>
-let g:neoterm_position = 'horizontal'
+"let g:neoterm_position = 'horizontal'
 let g:neoterm_automap_keys = ',tt'
