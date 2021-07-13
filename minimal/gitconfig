@@ -6,6 +6,7 @@
 	diffw = diff --color-words
 	diffbare = diff --ignore-space-at-eol -b -w
 	diffc = diff --color
+	pr = pull-request
 	po = pull origin master
 [rebase]
 	autosquash = true
@@ -16,24 +17,16 @@
 [color]
 	ui = true
 [core]
-	editor = nvim
+	editor = vi
 	autocrlf = input
-	excludesfile = /Users/rbalasubra/.gitignore_global
-[include]
-    path = ~/.dotfile_local/gitconfig
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
-[hub]
-	host = github.factset.com
 [crdential]
 	helper = store
 [credential]
 	helper = store
 [user]
 	name = Rakesh Balasubramanian
-	email = rakesh.balasubramanian@factset.com
-[url "git@github.factset.com:"]
-	insteadOf = https://github.factset.com/

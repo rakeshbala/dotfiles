@@ -1,3 +1,8 @@
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'altercation/vim-colors-solarized'
@@ -26,6 +31,7 @@ Plug 'mhinz/vim-signify'
 Plug 'easymotion/vim-easymotion'
 Plug 'leafgarland/typescript-vim'
 Plug 'othree/yajs.vim'
+Plug 'cespare/vim-toml'
 Plug 'tpope/vim-db'
 source ~/.dotfile_local/vimrc.local
 "Neovim plugins
@@ -50,10 +56,12 @@ au FileType go nmap <Leader>tc <Plug>(go-test-compile)
 au FileType go nmap <Leader>r <Plug>(go-run)
 au FileType go nmap <Leader>tf <Plug>(go-test-func)
 au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>d <Plug>(go-doc)
 
 let g:go_term_mode = "split"
 let g:go_fmt_command = "goimports"
-let g:go_def_mode = "godef"
+let g:go_def_mode = "gopls"
+let g:go_info_mode = "gopls"
 let g:go_highlight_structs = 1
 let g:go_highlight_methods = 1
 let g:go_highlight_functions = 1
@@ -63,9 +71,7 @@ let g:go_highlight_function_arguments = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
-
-
-
+let g:go_metalinter_command='golangci-lint'
 
 "NERDTree options
 silent! nnoremap <F2> :NERDTreeToggle<CR>

@@ -5,7 +5,7 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias dot="cd $DOTFILEDIR"
 alias git="hub"
-alias gits="git status -s"
+alias gits="git status -sb"
 alias gitd="git diff"
 alias gitp="git push -u origin "
 alias gitb="git branch -v"
@@ -26,6 +26,7 @@ alias tree="tree -I 'node_modules|\.git'"
 alias vi="nvim"
 alias sdiff="~/.linuxbrew/bin/sed s/---/\\\n-----------------------------\\\n---/ | ~/.linuxbrew/bin/sed s/@@/\\\n\\\n\\\n@@/"
 alias ez="vi ~/.zshrc"
+alias ezplug="vi $DOTFILEDIR/zsh/zinit.zsh"
 alias sz=". ~/.zshrc"
 alias ev="vi ~/.vim/vimrc"
 alias evplug="vi $DOTFILEDIR/vim/vimplugins.vim"
@@ -34,16 +35,11 @@ alias szl='source ~/.dotfile_local/zshrc.local'
 alias dog=colorize
 alias ealias="vi $DOTFILEDIR/alias/common.alias"
 alias salias="source $DOTFILEDIR/alias/common.alias"
-alias tma="tmux att"
-alias tmuxn="tmux new -s dev"
+alias tma="tmux new -A -s mac-default"
 alias paths="echo $PATH| tr ':' '\n'"
 alias -g L=" | less"
 alias -g TR=" | tr -s ' ' '\n' "
-
-
-#go alias
-alias goi="go install ./..."
-alias gotone="go test ./tests/... -run "
+alias chrome='open -a "Google Chrome.app"'
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -56,9 +52,6 @@ fi
 alias l="ls -lF ${colorflag}"
 alias ll="ls -lAFh ${colorflag}"
 alias la="ls -AF ${colorflag}"
-
-# List only directories
-alias lsd="ls -lF ${colorflag} | grep --color=never '^d'"
 
 # Always use color output for `ls`
 alias ls="ls ${colorflag}"
@@ -87,5 +80,12 @@ alias generateCtags="find . -type f -iregex .*\.js$ -not -path \"./node_modules/
 alias df='df -h'
 alias du='du -h -d 2'
 
-# Host specific aliases
-source "$DOTFILEDIR/alias/$(platform_get).alias"
+#no-op r built-in of zsh
+alias r='echo "r no-oped by alias"'
+
+#fsio
+bastion='ssh bastion-aws'
+
+#reset usb port - funky keyboard
+alias resetusb="sudo launchctl stop com.apple.usbd;sudo launchctl start com.apple.usbd"
+

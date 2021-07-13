@@ -60,8 +60,6 @@ echo "Symlinking dot files..."
 echo ".zshrc"
 ln -s "$dotfilepath/zsh/zshrc" $HOME/.zshrc
 echo ".vimrc"
-echo "Setting up vim-plug"
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ln -s "$dotfilepath/vim/vimrc" $HOME/.vim/vimrc
 nvim +PlugInstall +qall
 echo ".tmux.conf"
