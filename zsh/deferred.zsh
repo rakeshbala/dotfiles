@@ -24,4 +24,4 @@ __zplg_async_run () {
 
 # Run commands in __zplg_async_run asynchronously
 zplugin ice wait'0' lucid atload'__zplg_async_run'
-zplugin light zdharma/null  # create with `zplugin create null`, see https://github.com/zdharma/zplugin/issues/68
+zplugin light zdharma-continuum/null  # create with `zplugin create null`, see https://github.com/zdharma/zplugin/issues/68
