@@ -7,7 +7,7 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit wait lucid for \
     atinit"zicompinit; zicdreplay"  \
         zsh-users/zsh-history-substring-search \
-        zdharma/fast-syntax-highlighting \
+        zdharma-continuum/fast-syntax-highlighting \
         OMZP::colored-man-pages \
         OMZP::colorize \
         OMZP::fasd \
